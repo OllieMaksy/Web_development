@@ -1,0 +1,513 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teachinder</title> <!-- назва вкладки браузера -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class = "header">
+        <div class="header_top">
+            <h1 class="title">Teachinder</h1>
+            <div class="search">
+              <input type="text" class="search_input" placeholder="Name, note or age to search">
+              <button type="button" class="search_btn">Search</button>
+            </div>
+        </div>
+
+        <nav class="nav">
+            <ul class="nav_list">
+              <li><a href="#teachers">Teachers</a></li>
+              <li><a href="#statistics">Statistics</a></li>
+              <li><a href="#favorites">Favorites</a></li>
+              <li><a href="#about">About</a></li>
+            </ul>
+            <button  type="button" class="add_btn">Add teacher</button>
+        </nav>
+
+    </header>
+
+      <hr class="divider">
+
+      <section class="teachers" id="teachers">
+        <h2 class="section-title">Top Teachers</h2>
+
+        <form class="filters">
+        <div class="filters__item">
+            <label for="age-select">Age:</label>
+            <select id = "age-select" name = "age" class = "filters__select">
+                <option value = "18-31">18-31</option>
+                <option value = "32-40">31-40</option>
+                <option value = "41-50">41-50</option>
+                <option value = "51+">51+</option>
+            </select>
+        </div>
+
+        <!-- span для різних дрібних деталей типу іконки і тд-->
+        <span class="filters__divider"></span>
+
+        <div class="filters__item">
+            <label for="region-select">Region:</label>
+            <select id = "region-select" name = "region" class = "filters__select">
+                <option value = "Europe">Europe</option>
+                <option value = "Asia">Asia</option>
+                <option value = "USA">USA</option>
+            </select>
+        </div>
+
+        <span class="filters__divider"></span>
+
+        <div class="filters__item">
+            <label for="sex-select">Sex:</label>
+            <select id = "sex-select" name = "sex" class = "filters__select">
+                <option value = "Male">Male</option>
+                <option value = "Female">Female</option>
+                <option value = "All">All</option>
+            </select>
+        </div>
+
+        <span class="filters__divider"></span>
+
+        <label class="filters__checkbox-label">
+            <input type="checkbox" name="with_photo" class="filters__checkbox">
+            Only with photo
+          </label>
+
+          <span class="filters__divider"></span>
+
+          <label class="filters__checkbox-label">
+            <input type="checkbox" name="favorites" class="filters__checkbox">
+            Only favorites
+          </label>
+        </form>
+      </section>
+
+      <section class="teachers-grid">
+        <article class="teacher-card"
+          data-name="Ihor Tkachuk"
+          data-subject="Chemistry"
+          data-location="Kyiv, Ukraine"
+          data-agesex="35, Male"
+          data-email="ihor_tkachuk@domain.com"
+          data-phone="+380964993252"
+          data-photo="images/ihor.jpg"
+          data-note="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab autem consectetur culpa cumque, distinctio dolor dolore dolorem doloremque ea explicabo facilis nam nesciunt nisi pariatur perspiciatis porro quis similique temporibus veniam veritatis?">
+          <div class="teacher-card__avatar-box">
+            <img src="images/ihor.jpg" alt="Ihor Tkachuk" class="teacher-card__img">
+          </div>
+          <h3 class="teacher-card__name">Ihor<br>Tkachuk</h3>
+          <p class="teacher-card__subject">Chemistry</p>
+          <p class="teacher-card__country">Ukraine</p>
+        </article>
+      
+        <article class="teacher-card"
+          data-name="Pragg Rameshbabu"
+          data-subject="Chess"
+          data-location="Chennai, India"
+          data-agesex="19, Male"
+          data-email="pragg_ramesh@domain.com"
+          data-phone="+919876543210"
+          data-photo="images/pragg.jpg"
+          data-note="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab autem consectetur culpa cumque, distinctio dolor dolore dolorem doloremque ea explicabo facilis nam nesciunt nisi pariatur perspiciatis porro quis similique temporibus veniam veritatis?">
+          <div class="teacher-card__avatar-box">
+            <img src="images/pragg.jpg" alt="Pragg Rameshbabu" class="teacher-card__img">
+          </div>
+          <h3 class="teacher-card__name">Pragg<br>Rameshbabu</h3>
+          <p class="teacher-card__subject">Chess</p>
+          <p class="teacher-card__country">India</p>
+        </article>
+      
+        <article class="teacher-card"
+          data-name="Floor Jansen"
+          data-subject="Vocal"
+          data-location="Copenhagen, Denmark"
+          data-agesex="28, Female"
+          data-email="floor_jansen@domain.com"
+          data-phone="+4520123456"
+          data-photo="images/floor.jpg"
+          data-note="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab autem consectetur culpa cumque, distinctio dolor dolore dolorem doloremque ea explicabo facilis nam nesciunt nisi pariatur perspiciatis porro quis similique temporibus veniam veritatis?">
+          <div class="teacher-card__avatar-box">
+            <img src="images/floor.jpg" alt="Floor Jansen" class="teacher-card__img">
+            <span class="teacher-card__star">&#9733;</span>
+          </div>
+          <h3 class="teacher-card__name">Floor<br>Jansen</h3>
+          <p class="teacher-card__subject">Vocal</p>
+          <p class="teacher-card__country">Denmark</p>
+        </article>
+      
+        <article class="teacher-card"
+          data-name="John Burke"
+          data-subject="Computer Science"
+          data-location="Brussels, Belgium"
+          data-agesex="24, Male"
+          data-email="john_burke@domain.com"
+          data-phone="+32470123456"
+          data-photo="images/john.jpg"
+          data-note="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab autem consectetur culpa cumque, distinctio dolor dolore dolorem doloremque ea explicabo facilis nam nesciunt nisi pariatur perspiciatis porro quis similique temporibus veniam veritatis?">
+          <div class="teacher-card__avatar-box">
+            <img src="images/john.jpg" alt="John Burke" class="teacher-card__img">
+          </div>
+          <h3 class="teacher-card__name">John<br>Burke</h3>
+          <p class="teacher-card__subject">Computer Science</p>
+          <p class="teacher-card__country">Belgium</p>
+        </article>
+      
+        <article class="teacher-card"
+          data-name="Ari Tang"
+          data-subject="Biology"
+          data-location="Shanghai, China"
+          data-agesex="27, Female"
+          data-email="ari_tang@domain.com"
+          data-phone="+8613812345678"
+          data-photo="images/tang.jpg"
+          data-note="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab autem consectetur culpa cumque, distinctio dolor dolore dolorem doloremque ea explicabo facilis nam nesciunt nisi pariatur perspiciatis porro quis similique temporibus veniam veritatis?">
+          <div class="teacher-card__avatar-box">
+            <img src="images/tang.jpg" alt="Ari Tang" class="teacher-card__img">
+            <span class="teacher-card__star">&#9733;</span>
+          </div>
+          <h3 class="teacher-card__name">Ari<br>Tang</h3>
+          <p class="teacher-card__subject">Biology</p>
+          <p class="teacher-card__country">China</p>
+        </article>
+      
+        <article class="teacher-card"
+          data-name="Rachel Andrew"
+          data-subject="Medicine"
+          data-location="London, UK"
+          data-agesex="42, Female"
+          data-email="rachel_andrew@domain.com"
+          data-phone="+447700900123"
+          data-photo="images/rachel.jpg"
+          data-note="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab autem consectetur culpa cumque, distinctio dolor dolore dolorem doloremque ea explicabo facilis nam nesciunt nisi pariatur perspiciatis porro quis similique temporibus veniam veritatis?">
+          <div class="teacher-card__avatar-box">
+            <img src="images/rachel.jpg" alt="Rachel Andrew" class="teacher-card__img">
+          </div>
+          <h3 class="teacher-card__name">Rachel<br>Andrew</h3>
+          <p class="teacher-card__subject">Medicine</p>
+          <p class="teacher-card__country">UK</p>
+        </article>
+      
+        <article class="teacher-card"
+          data-name="Anna Muzychuk"
+          data-subject="Chess"
+          data-location="Minsk, Belarus"
+          data-agesex="33, Female"
+          data-email="anna_muzychuk@domain.com"
+          data-phone="+375291234567"
+          data-photo=""
+          data-note="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab autem consectetur culpa cumque, distinctio dolor dolore dolorem doloremque ea explicabo facilis nam nesciunt nisi pariatur perspiciatis porro quis similique temporibus veniam veritatis?">
+          <div class="teacher-card__avatar-box">
+            <span class="teacher-card__initials">A.M</span>
+          </div>
+          <h3 class="teacher-card__name">Anna<br>Muzychuk</h3>
+          <p class="teacher-card__subject">Chess</p>
+          <p class="teacher-card__country">Belarus</p>
+        </article>
+      
+        <article class="teacher-card"
+          data-name="Radoslaw Ljuboevic"
+          data-subject="Physics"
+          data-location="Warsaw, Poland"
+          data-agesex="38, Male"
+          data-email="radoslaw_l@domain.com"
+          data-phone="+48501234567"
+          data-photo=""
+          data-note="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab autem consectetur culpa cumque, distinctio dolor dolore dolorem doloremque ea explicabo facilis nam nesciunt nisi pariatur perspiciatis porro quis similique temporibus veniam veritatis?">
+          <div class="teacher-card__avatar-box">
+            <span class="teacher-card__initials">R.L</span>
+          </div>
+          <h3 class="teacher-card__name">Radoslaw<br>Ljuboevic</h3>
+          <p class="teacher-card__subject">Physics</p>
+          <p class="teacher-card__country">Poland</p>
+        </article>
+      </section>
+
+      <hr class="divider">
+
+      <section class="statistics" id="statistics">
+        <h2 class="section-title">Statistics</h2>
+
+       <div class ="table-wrap">
+        <table>
+            <thead>
+                <tr> 
+                    <th>Name</th>
+                    <th>Speciality</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Nationality</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Daisy Alexander</td>
+                    <td>Chemistry</td>
+                    <td>28</td>
+                    <td>Female</td>
+                    <td>Vietnam</td>
+                </tr>
+
+                <tr>
+                    <td>Julia Bradley</td>
+                    <td>Math</td>
+                    <td>26</td>
+                    <td>Female</td>
+                    <td>USA</td>
+                </tr>
+
+                <tr>
+                    <td>Rita Hart</td>
+                    <td>Art</td>
+                    <td>41</td>
+                    <td>Female</td>
+                    <td>Ireland</td>
+                </tr>
+
+                <tr>
+                    <td>Jonathan Jacobs</td>
+                    <td>Math</td>
+                    <td>32</td>
+                    <td>Male</td>
+                    <td>England</td>
+                </tr>
+
+                <tr>
+                    <td>Nathaniel White</td>
+                    <td>Computer Science</td>
+                    <td>37</td>
+                    <td>Male</td>
+                    <td>Austria</td>
+                </tr>
+
+                <tr>
+                  <td>Frank Medina</td>
+                  <td>English</td>
+                  <td>43</td>
+                  <td>Male</td>
+                  <td>Italy</td>
+              </tr>
+
+              <tr>
+                  <td>Ella Curtis </td>
+                  <td>Chess</td>
+                  <td>34</td>
+                  <td>Female</td>
+                  <td>USA</td>
+              </tr>
+
+              <tr>
+                <td>Claire Simmmons</td>
+                <td>Art</td>
+                <td>38</td>
+                <td>Female</td>
+                <td>Netherlands</td>
+              </tr>
+
+              <tr>
+                <td>Benjamin Knight</td>
+                <td>Biology</td>
+                <td>44</td>
+                <td>Male</td>
+                <td>Scotland</td>
+              </tr>
+
+              <tr>
+                <td>Norma Rose</td>
+                <td>Statistics</td>
+                <td>36</td>
+                <td>Female</td>
+                <td>France</td>
+              </tr>
+            </tbody>
+        </table>
+       </div>
+        
+
+        <ul class="pagination">
+            <li class="current">1</li>   <!-- поточна сторінка: не посилання -->
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li>…</li>
+            <li><a href="#">Last</a></li>
+          </ul>
+      </section>
+      <hr class="divider">
+
+      <section class="favorites" id="favorites">
+        <h2 class="section-title">Favorites</h2>
+        <div class="carousel">
+            <button class="carousel__arrow" type="button">&#10094;</button>
+            <div class="carousel__track">
+                <article class="teacher-card">
+                    <div class="teacher-card__avatar-box">
+                      <img src="images/ihor.jpg" alt="Ihor Tkachuk" class="teacher-card__img">
+                    </div>
+                    <h3 class="teacher-card__name">Ihor<br>Tkachuk</h3>
+                    <p class="teacher-card__country">Ukraine</p>
+                  </article>
+        
+                  <article class="teacher-card">
+                    <div class="teacher-card__avatar-box">
+                      <span class="teacher-card__initials">A.M</span>
+                    </div>
+                    <h3 class="teacher-card__name">Anna<br>Muzychuk</h3>
+                    <p class="teacher-card__country">Belarus</p>
+                  </article>
+        
+                  <article class="teacher-card">
+                    <div class="teacher-card__avatar-box">
+                      <img src="images/john.jpg" alt="John Burke" class="teacher-card__img">
+                    </div>
+                    <h3 class="teacher-card__name">John<br>Burke</h3>
+                    <p class="teacher-card__country">Belgium</p>
+                </article>
+        
+                <article class="teacher-card">
+                    <div class="teacher-card__avatar-box">
+                      <img src="images/tang.jpg" alt="Ari Tang" class="teacher-card__img">
+                    </div>
+                    <h3 class="teacher-card__name">Ari<br>Tang</h3>
+                    <p class="teacher-card__country">China</p>
+                </article>
+        
+                <article class="teacher-card">
+                    <div class="teacher-card__avatar-box">
+                      <img src="images/floor.jpg" alt="Floor Jansen" class="teacher-card__img">
+                    </div>
+                    <h3 class="teacher-card__name">Floor<br>Jansen</h3>
+                    <p class="teacher-card__country">Denmark</p>
+                  </article>
+            </div>
+            <button class="carousel__arrow" type="button">&#10095;</button>
+          </div>
+        
+
+      </section>
+    
+
+      <hr class="divider">
+
+      <section id="about" class="section about">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A atque facere, hic impedit itaque molestiae sit tempore? Ea in mollitia natus rerum voluptates. Ea ex excepturi facere tempora. Aliquid asperiores hic impedit iusto natus quaerat ratione sit? Culpa iusto optio voluptas voluptate. Enim eveniet fugit iure maiores molestiae, praesentium quia.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam eligendi illum in inventore ipsum odio officiis omnis quisquam sed tempora?</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A atque esse expedita id iusto mollitia, odit sint ullam veritatis vero?</p>
+      </section>
+
+    <footer class="footer">
+        <nav class="nav">
+            <ul class="nav_list">
+              <li><a href="#teachers">Teachers</a></li>
+              <li><a href="#statistics">Statistics</a></li>
+              <li><a href="#favorites">Favorites</a></li>
+              <li><a href="#about">About</a></li>
+            </ul>
+            <button  type="button" class="add_btn">Add teacher</button>
+        </nav>
+    </footer>
+      
+
+    <dialog class ="popup" id="add-popup">
+        <div class="popup__header">
+          <h2 class="popup__title">Add Teacher</h2>
+          <button class="popup__close" type="button" aria-label="Close">&times;</button>
+        </div>
+        <form class ="form" id="add-form">
+            <label class ="form__field form__field--full">Name
+                <input type="text" name="name" placeholder="Full Name" required>    
+            </label>
+            <label class="form__field form__field--full">Speciality
+                <select name="course">
+                  <option>Mathematics</option>
+                  <option>Physics</option>
+                  <option>English</option>
+                  <option>Computer Science</option>
+                  <option>Dancing</option>
+                  <option>Chess</option>
+                  <option>Biology</option>
+                  <option>Chemistry</option>
+                  <option>Law</option>
+                  <option>Art</option>
+                  <option>Medicine</option>
+                  <option>Statistics</option>
+                </select>
+              </label>
+          
+              <!-- Ці поля стоять по два в рядок -->
+              <label class="form__field">Country
+                <select name="country">
+                  <option>Ukraine</option>
+                  <option>Poland</option>
+                  <option>Germany</option>
+                  <option>USA</option>
+                </select>
+              </label>
+              <label class="form__field">City
+                <input type="text" name="city">
+              </label>
+    
+              <label class="form__field">Email
+                <input type="email" name="email" required>
+              </label>
+              <label class="form__field">Phone
+                <input type="tel" name="phone">
+              </label>
+          
+              <label class="form__field">Date of birth
+                <input type="date" name="b_date">
+              </label>
+    
+            <label class="form__field">Gender
+                <select name="gender">
+                  <option>Male</option>
+                  <option>Female</option>
+                </select>
+              </label>
+          
+              <label class="form__field form__field--full">Note
+                <textarea name="note" rows="4"></textarea>
+              </label>
+          
+              <div class="form__buttons">
+                <button type="submit" class="form__submit">Add teacher</button>
+              </div>
+              
+        </form>
+        
+      </dialog>
+
+    <dialog class="popup" id="info-popup">
+        <!-- Темна смужка з заголовком і хрестиком -->
+        <div class="popup__header">
+          <h2 class="popup__title">Teacher Info</h2>
+          <button class="popup__close" type="button" aria-label="Close">&times;</button>
+        </div>
+      
+        <div class="popup__body">
+          <div class="popup__top">
+            <img class="popup__photo" id="info-photo" src="" alt="">
+      
+            <div class="popup__info">
+              <h3 class="popup__name" id="info-name"></h3>
+              <button class="popup__star" type="button" aria-label="Favorite">&#9734;</button>
+              <p class="popup__subject" id="info-subject"></p>
+              <p class="popup__line" id="info-location"></p>
+              <p class="popup__line" id="info-agesex"></p>
+              <a class="popup__line popup__email" id="info-email" href="#"></a>
+              <p class="popup__line" id="info-phone"></p>
+            </div>
+          </div>
+      
+          <p class="popup__note" id="info-note"></p>
+          <a class="popup__map" href="#">toggle map</a>
+        </div>
+      </dialog>
+
+      <script src="mock.js"></script> 
+      <script src="lab2.js"></script>
+      <script src="script.js"></script>
+      
+
+</body> 
+</html> 
