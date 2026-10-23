@@ -1,0 +1,254 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teachinder</title> <!-- назва вкладки браузера -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class = "header">
+        <div class="header_top">
+            <h1 class="title">Teachinder</h1>
+            <div class="search">
+              <input type="text" class="search_input" placeholder="Name, note or age to search">
+              <button type="button" class="search_btn">Search</button>
+            </div>
+        </div>
+
+        <nav class="nav">
+            <ul class="nav_list">
+              <li><a href="#teachers">Teachers</a></li>
+              <li><a href="#statistics">Statistics</a></li>
+              <li><a href="#favorites">Favorites</a></li>
+              <li><a href="#about">About</a></li>
+            </ul>
+            <button  type="button" class="add_btn">Add teacher</button>
+        </nav>
+
+    </header>
+
+      <hr class="divider">
+
+      <section class="teachers" id="teachers">
+        <h2 class="section-title">Top Teachers</h2>
+
+        <form class="filters">
+          <div class="filters__item">
+            <label for="age-select">Age:</label>
+            <select id="age-select" name="age" class="filters__select">
+              <option value="all">All</option>
+              <option value="18-31">18-31</option>
+              <option value="32-40">32-40</option>
+              <option value="41-50">41-50</option>
+              <option value="51+">51+</option>
+            </select>
+          </div>
+        
+          <span class="filters__divider"></span>
+        
+          <div class="filters__item">
+            <label for="country-select">Country:</label>
+            <select id="country-select" name="country" class="filters__select">
+              <option value="all">All</option>
+            </select>
+          </div>
+        
+          <span class="filters__divider"></span>
+        
+          <div class="filters__item">
+            <label for="sex-select">Sex:</label>
+            <select id="sex-select" name="sex" class="filters__select">
+              <option value="all">All</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
+        
+          <span class="filters__divider"></span>
+        
+          <label class="filters__checkbox-label">
+            <input type="checkbox" name="with_photo" class="filters__checkbox">
+            Only with photo
+          </label>
+        
+          <span class="filters__divider"></span>
+        
+          <label class="filters__checkbox-label">
+            <input type="checkbox" name="favorites" class="filters__checkbox">
+            Only favorites
+          </label>
+        </form>
+      </section>
+
+      <section class="teachers-grid" id="teachers-grid">
+        
+      </section>
+
+      <hr class="divider">
+
+      <section class="statistics" id="statistics">
+        <h2 class="section-title">Statistics</h2>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th data-sort="full_name">Name ⬍</th>
+                <th data-sort="course">Speciality ⬍</th>
+                <th data-sort="age">Age ⬍</th>
+                <th data-sort="gender">Gender ⬍</th>
+                <th data-sort="country">Nationality ⬍</th>
+              </tr>
+            </thead>
+            <tbody id="stats-tbody">
+            </tbody>
+          </table>
+        </div>
+
+        <ul class="pagination">
+            <li class="current">1</li>   <!-- поточна сторінка: не посилання -->
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li>…</li>
+            <li><a href="#">Last</a></li>
+          </ul>
+      </section>
+      <hr class="divider">
+
+      <section class="favorites" id="favorites">
+        <h2 class="section-title">Favorites</h2>
+        <div class="carousel">
+          <button class="carousel__arrow" type="button" id="fav-prev">&#10094;</button>
+          <div class="carousel__track" id="favorites-track"></div>
+          <button class="carousel__arrow" type="button" id="fav-next">&#10095;</button>
+        </div>
+        
+
+      </section>
+    
+
+      <hr class="divider">
+
+      <section id="about" class="section about">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A atque facere, hic impedit itaque molestiae sit tempore? Ea in mollitia natus rerum voluptates. Ea ex excepturi facere tempora. Aliquid asperiores hic impedit iusto natus quaerat ratione sit? Culpa iusto optio voluptas voluptate. Enim eveniet fugit iure maiores molestiae, praesentium quia.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam eligendi illum in inventore ipsum odio officiis omnis quisquam sed tempora?</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A atque esse expedita id iusto mollitia, odit sint ullam veritatis vero?</p>
+      </section>
+
+    <footer class="footer">
+        <nav class="nav">
+            <ul class="nav_list">
+              <li><a href="#teachers">Teachers</a></li>
+              <li><a href="#statistics">Statistics</a></li>
+              <li><a href="#favorites">Favorites</a></li>
+              <li><a href="#about">About</a></li>
+            </ul>
+            <button  type="button" class="add_btn">Add teacher</button>
+        </nav>
+    </footer>
+      
+
+    <dialog class ="popup" id="add-popup">
+        <div class="popup__header">
+          <h2 class="popup__title">Add Teacher</h2>
+          <button class="popup__close" type="button" aria-label="Close">&times;</button>
+        </div>
+        <form class ="form" id="add-form">
+            <label class ="form__field form__field--full">Name
+                <input type="text" name="name" placeholder="Full Name" required>    
+            </label>
+            <label class="form__field form__field--full">Speciality
+                <select name="course">
+                  <option>Mathematics</option>
+                  <option>Physics</option>
+                  <option>English</option>
+                  <option>Computer Science</option>
+                  <option>Dancing</option>
+                  <option>Chess</option>
+                  <option>Biology</option>
+                  <option>Chemistry</option>
+                  <option>Law</option>
+                  <option>Art</option>
+                  <option>Medicine</option>
+                  <option>Statistics</option>
+                </select>
+              </label>
+          
+              <!-- Ці поля стоять по два в рядок -->
+              <label class="form__field">Country
+                <select name="country">
+                  <option>Ukraine</option>
+                  <option>Poland</option>
+                  <option>Germany</option>
+                  <option>USA</option>
+                </select>
+              </label>
+              <label class="form__field">City
+                <input type="text" name="city">
+              </label>
+    
+              <label class="form__field">Email
+                <input type="email" name="email" required>
+              </label>
+              <label class="form__field">Phone
+                <input type="tel" name="phone">
+              </label>
+          
+              <label class="form__field">Date of birth
+                <input type="date" name="b_date">
+              </label>
+    
+            <label class="form__field">Gender
+                <select name="gender">
+                  <option>Male</option>
+                  <option>Female</option>
+                </select>
+              </label>
+          
+              <label class="form__field form__field--full">Note
+                <textarea name="note" rows="4"></textarea>
+              </label>
+          
+              <div class="form__buttons">
+                <button type="submit" class="form__submit">Add teacher</button>
+              </div>
+              
+        </form>
+        
+      </dialog>
+
+    <dialog class="popup" id="info-popup">
+        <!-- Темна смужка з заголовком і хрестиком -->
+        <div class="popup__header">
+          <h2 class="popup__title">Teacher Info</h2>
+          <button class="popup__close" type="button" aria-label="Close">&times;</button>
+        </div>
+      
+        <div class="popup__body">
+          <div class="popup__top">
+            <img class="popup__photo" id="info-photo" src="" alt="">
+      
+            <div class="popup__info">
+              <h3 class="popup__name" id="info-name"></h3>
+              <button class="popup__star" type="button" aria-label="Favorite">&#9734;</button>
+              <p class="popup__subject" id="info-subject"></p>
+              <p class="popup__line" id="info-location"></p>
+              <p class="popup__line" id="info-agesex"></p>
+              <a class="popup__line popup__email" id="info-email" href="#"></a>
+              <p class="popup__line" id="info-phone"></p>
+            </div>
+          </div>
+      
+          <p class="popup__note" id="info-note"></p>
+          <a class="popup__map" href="#">toggle map</a>
+        </div>
+      </dialog>
+
+      <script src="mock.js"></script> 
+      <script src="lab2.js"></script>
+      <script src="script.js"></script>
+      
+
+</body> 
+</html> 

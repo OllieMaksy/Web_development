@@ -90,13 +90,12 @@
         continue; // це дублікат: пропускаємо й беремо наступного
       }
   
-      // Додаємо нові поля з правильними типами
-      user.id = nextId;                          // число
+      user.id = nextId;                        
       nextId = nextId + 1;
-      user.favorite = Math.random() < 0.5;       // true або false (boolean)
-      user.course = getRandomItem(courses);      // рядок зі списку
-      user.bg_color = getRandomItem(colors);     // рядок з кольором
-      user.note = '';                            // порожній рядок
+      user.favorite = Math.random() < 0.5;       
+      user.course = getRandomItem(courses);      
+      user.bg_color = getRandomItem(colors);    
+      user.note = '';                            
   
       result.push(user); // додаємо в кінець результату
     }
@@ -106,7 +105,7 @@
   
   
 
-  // ЗАВДАННЯ 2: валідація
+  // ЗАВДАННЯ 2
   
   // Чи починається рядок з великої літери
   function startsWithBigLetter(text) {
@@ -118,7 +117,6 @@
     return first === first.toUpperCase() && first !== first.toLowerCase();
   }
   
-  // Перевірка телефону. Формат залежить від країни.
   function isPhoneOk(phone, country) {
     if (typeof phone !== 'string') {
       return false;
@@ -157,7 +155,7 @@
       }
     }
   
-    // note: може бути порожнім, але якщо щось написано, то з великої літери
+    // note може бути порожнім, але якщо щось написано, то з великої літери
     if (user.note !== '' && startsWithBigLetter(user.note) === false) {
       errors.push('note');
     }
@@ -182,17 +180,15 @@
   
 
 
-  // ЗАВДАННЯ 3: фільтрація (усі умови одночасно, тобто "і")
+  // ЗАВДАННЯ 3: фільтрація 
   
-  // Якщо якийсь параметр не потрібен, передайте undefined або null
   function filterUsers(users, country, age, gender, favorite) {
     var result = [];
   
     for (var i = 0; i < users.length; i++) {
       var user = users[i];
-      var ok = true; // припускаємо, що користувач підходить
+      var ok = true; 
   
-      // Кожну задану умову перевіряємо. Якщо не збіглася, ok стає false.
       if (country !== undefined && country !== null && user.country !== country) {
         ok = false;
       }
@@ -217,15 +213,8 @@
   
  
   // ЗАВДАННЯ 4: сортування за одним полем
-  
-  // field: 'full_name' | 'age' | 'b_date' | 'country'
-  // direction: 'asc' (за зростанням) або 'desc' (за спаданням)
   function sortUsers(users, field, direction) {
-    var copy = users.slice(); // робимо копію, щоб не міняти оригінальний масив
-  
-    // sort порівнює два елементи a і b:
-    //   повернули число < 0, значить a йде раніше
-    //   повернули число > 0, значить b йде раніше
+    var copy = users.slice();
     copy.sort(function (a, b) {
       var x = a[field];
       var y = b[field];
@@ -244,7 +233,6 @@
         answer = 1;
       }
   
-      // Для спадання міняємо знак: найбільший буде першим
       if (direction === 'desc') {
         answer = -answer;
       }
@@ -256,9 +244,6 @@
   
   
   // ЗАВДАННЯ 5: пошук
-  
-  // field: 'full_name' | 'note' | 'age'; value: що шукаємо (рядок або число)
-  // Повертає першого знайденого користувача або null
   function findUser(users, field, value) {
     for (var i = 0; i < users.length; i++) {
       var current = users[i][field];
@@ -288,7 +273,7 @@
   // operator: '>' , '<' , '=='
   function percentByAge(users, operator, value) {
     if (users.length === 0) {
-      return 0; // щоб не ділити на нуль
+      return 0; 
     }
   
     var count = 0; // скільки підійшло
@@ -305,7 +290,6 @@
       }
     }
   
-    // Приклад: 30 з 50 -> 30 / 50 * 100 = 60
     return (count / users.length) * 100;
   }
   
@@ -314,22 +298,33 @@
 
   
   var users = formatUsers(randomUserMock, additionalUsers);
-  console.log('--- Завдання 1: усі користувачі (без дублів) ---');
-  console.log(users);
+
+  console.log('--- Завдання 1 ---');
+  console.log('Усього користувачів:', users.length);
+  console.log(users[0]); // показуємо тільки першого
   
-  console.log('--- Завдання 2: валідація (порожній список = усе гаразд) ---');
+  console.log('--- Завдання 2: хто НЕ пройшов валідацію ---');
   for (var i = 0; i < users.length; i++) {
-    console.log(users[i].full_name, validateUser(users[i]));
+    var errors = validateUser(users[i]);
+    if (errors.length > 0) {
+      console.log(users[i].full_name, errors);
+    }
   }
   
-  console.log('--- Завдання 3: тільки з Ukraine і жінки ---');
-  console.log(filterUsers(users, 'Ukraine', null, 'Female', null));
+  console.log('--- Завдання 3: Germany і Female ---');
+  var found = filterUsers(users, 'Germany', null, 'Female', null);
+  for (var i = 0; i < found.length; i++) {
+    console.log(found[i].full_name, found[i].age);
+  }
   
-  console.log('--- Завдання 4: за віком, від найстаршого ---');
-  console.log(sortUsers(users, 'age', 'desc'));
+  console.log('--- Завдання 4: 3 найстарші ---');
+  var sorted = sortUsers(users, 'age', 'desc');
+  for (var i = 0; i < 3; i++) {
+    console.log(sorted[i].full_name, sorted[i].age);
+  }
   
-  console.log('--- Завдання 5: пошук "ivan" в full_name ---');
-  console.log(findUser(users, 'full_name', 'ivan'));
+  console.log('--- Завдання 5: пошук "norbert" ---');
+  console.log(findUser(users, 'full_name', 'norbert'));
   
-  console.log('--- Завдання 6: відсоток людей старших за 30 ---');
+  console.log('--- Завдання 6: відсоток старших за 30 ---');
   console.log(percentByAge(users, '>', 30) + '%');
