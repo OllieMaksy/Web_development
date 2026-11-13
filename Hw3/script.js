@@ -9,6 +9,7 @@ let favStart = 0;
 const FAV_PER_PAGE = 5;
 let searchQuery = '';
 
+// розділяє імʼя на ініціали
 function getInitials(fullName) {
   if (!fullName) return '';
   return fullName
@@ -18,10 +19,11 @@ function getInitials(fullName) {
     .join('');
 }
 
+// створює викладача
 function createCardElement(teacher) {
-  const card = document.createElement('article');
-  card.className = 'teacher-card';
-  card.dataset.id = teacher.id;
+  const card = document.createElement('article'); //створює новий елемент артікл
+  card.className = 'teacher-card'; //дає йому css клас для оформлення
+  card.dataset.id = teacher.id; //зберігає айді в атрибуті
 
   const avatarBox = document.createElement('div');
   avatarBox.className = 'teacher-card__avatar-box';
@@ -70,6 +72,7 @@ function createCardElement(teacher) {
 
 const filterForm = document.querySelector('.filters');
 
+//перевіряє чи потрапляяє викладач у вибраний діапазон
 function ageFits(age, range) {
   if (range === 'all' || !range) return true;
   if (range === '18-31') return age >= 18 && age <= 31;
@@ -159,17 +162,17 @@ if (searchBtn && searchInput) {
 function renderTeachers() {
   if (!teachersGrid) return;
 
-  const displayList = getFilteredAndSearchedTeachers();
+  const displayList = getFilteredAndSearchedTeachers(); //повертає масив викладачів за вибраними умовами
 
   if (displayList.length === 0) {
-    const emptyNotice = document.createElement('p');
+    const emptyNotice = document.createElement('p'); //для кожного викладача створюється хтмл-карта
     emptyNotice.textContent = 'No teachers found';
     teachersGrid.replaceChildren(emptyNotice);
     return;
   }
 
-  const cardElements = displayList.map(createCardElement);
-  teachersGrid.replaceChildren(...cardElements);
+  const cardElements = displayList.map(createCardElement);//для кожного викладача створюється хтмл-карта
+  teachersGrid.replaceChildren(...cardElements);//старі карти замінюються новими
 }
 
 function renderFavorites() {
@@ -430,8 +433,10 @@ if (addForm) {
   });
 }
 
+
+//запускається фільтрація
 if (filterForm) {
-  filterForm.addEventListener('change', renderTeachers);
+  filterForm.addEventListener('change', renderTeachers); //коли користувач змінює значення фільтра, виклич функцію рендер тічерс
   filterForm.addEventListener('submit', event => event.preventDefault());
 }
 

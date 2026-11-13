@@ -1,0 +1,36 @@
+{
+  "teachers": [
+    {
+      "id": 1793344404606,
+      "full_name": "Ivan Petrenko",
+      "course": "Mathematics",
+      "country": "Ukraine",
+      "city": "Lviv",
+      "email": "vwlkvnep@gmail.com",
+      "phone": "+380671112233",
+      "b_date": "1894-03-12",
+      "age": 132,
+      "gender": "Male",
+      "note": "",
+      "favorite": false,
+      "picture_large": null,
+      "bg_color": "#ffcccc"
+    },
+    {
+      "id": 1793345844804,
+      "full_name": "Anna Shevchyk",
+      "course": "Mathematics",
+      "country": "Ukraine",
+      "city": "Kyiv",
+      "email": "anna123@gmail.com",
+      "phone": "+380681234567",
+      "b_date": "1975-04-30",
+      "age": 51,
+      "gender": "Female",
+      "note": "",
+      "favorite": false,
+      "picture_large": null,
+      "bg_color": "#ffcccc"
+    }
+  ]
+}
